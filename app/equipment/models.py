@@ -6,6 +6,13 @@ class EquipmentType(models.Model):
     name = models.CharField(_("Name"), max_length=50)
     sn_mask = models.CharField(_("SN mask"), max_length=50)
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["name"],
+                name="name_uniq")
+        ]
+
     def __str__(self) -> str:
         return f"Type {self.name}"
 

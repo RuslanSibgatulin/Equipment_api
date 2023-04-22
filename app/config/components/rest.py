@@ -1,6 +1,9 @@
 import os
 
+CORS_ALLOW_ALL_ORIGINS = True
+
 REST_FRAMEWORK = {
+    "EXCEPTION_HANDLER": "config.exc_handler.api_exception_handler",
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated"
     ],
