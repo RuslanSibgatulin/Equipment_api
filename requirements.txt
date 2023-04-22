@@ -6,3 +6,4 @@ django-split-settings==1.1.0
 django-filter==22.1
 mysqlclient==2.1.1
 djangorestframework-simplejwt[crypto]==5.2.2
+django-cors-headers==3.14.0
