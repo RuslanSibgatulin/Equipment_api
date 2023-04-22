@@ -28,6 +28,10 @@ class EquipmentDataService {
   find(query) {
     return http.get(`/equipment?search=${query}`);
   }
+
+  getJWT(username, password) {
+    return http.post(`/token/`, {"username": username, "password": password});
+  }
 }
 
 export default new EquipmentDataService();

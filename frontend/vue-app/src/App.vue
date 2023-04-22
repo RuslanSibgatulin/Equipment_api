@@ -7,7 +7,7 @@
           <router-link to="/equipment" class="nav-link">Equipment</router-link>
         </li>
         <li class="nav-item">
-          <router-link to="/test" class="nav-link">Test</router-link>
+          <a class="nav-link" @click="logout">{{ getUser() }}</a>
         </li>
       </div>
     </nav>
@@ -20,6 +20,19 @@
 
 <script>
 export default {
-  name: "app"
+  name: "app",
+  methods: {
+    getUser() {
+      return localStorage.username
+    },
+    logout() {
+      let confirmation = `Logout?`;
+      if (confirm(confirmation)) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("username");
+        localStorage.removeItem("refresh");
+      }
+    }
+  }
 };
 </script>
